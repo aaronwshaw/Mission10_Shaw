@@ -1,0 +1,121 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Mission10_Shaw",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Bowlers": {
+      "get": {
+        "tags": [
+          "Bowlers"
+        ],
+        "operationId": "GetBowlers",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Bowler"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Bowler"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Bowler"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Bowler": {
+        "type": "object",
+        "properties": {
+          "bowlerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bowlerLastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "bowlerFirstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "bowlerMiddleInit": {
+            "type": "string",
+            "nullable": true
+          },
+          "bowlerAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "bowlerCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "bowlerState": {
+            "type": "string",
+            "nullable": true
+          },
+          "bowlerZip": {
+            "type": "string",
+            "nullable": true
+          },
+          "bowlerPhoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "teamId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "team": {
+            "$ref": "#/components/schemas/Team"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Team": {
+        "type": "object",
+        "properties": {
+          "teamId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "teamName": {
+            "type": "string",
+            "nullable": true
+          },
+          "captainId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
