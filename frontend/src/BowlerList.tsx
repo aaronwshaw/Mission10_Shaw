@@ -1,3 +1,4 @@
+import './App.css';
 import { useState } from 'react';
 import type { bowler } from './types/bowler'; // Importing the bowler type
 
@@ -21,7 +22,7 @@ function BowlerList() {
 
   return (
     <>
-      <table>
+      <table className="bowler-table">
         <thead>
           <tr>
             <th>Name</th>

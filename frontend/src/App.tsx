@@ -1,3 +1,4 @@
+import './App.css';
 import Heading from './Heading';
 import BowlerList from './BowlerList'; // Import the new BowlerList component
 

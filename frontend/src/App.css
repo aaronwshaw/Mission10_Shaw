@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 }
+
+.container {
+  display: grid;
+  place-items: center; /* Centers both horizontally and vertically */
+  height: 100vh;
+  text-align: center;
+}
+
+/* Ensure the table is also centered */
+.bowler-table {
+  margin: 0 auto; /* Centers the table horizontally */
+  text-align: left; /* Keeps text aligned properly inside the table */
+}

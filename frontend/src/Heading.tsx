@@ -1,3 +1,4 @@
+import './App.css';
 // Heading component that displays the title of the page
 const Heading = () => (
   <>
