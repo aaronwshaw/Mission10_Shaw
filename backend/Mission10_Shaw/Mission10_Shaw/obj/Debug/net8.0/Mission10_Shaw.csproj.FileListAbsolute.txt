@@ -160,3 +160,4 @@ C:\Users\awsha\source\repos\Mission10_Shaw\backend\Mission10_Shaw\Mission10_Shaw
 C:\Users\awsha\source\repos\Mission10_Shaw\backend\Mission10_Shaw\Mission10_Shaw\obj\Debug\net8.0\Mission10_Shaw.genruntimeconfig.cache
 C:\Users\awsha\source\repos\Mission10_Shaw\backend\Mission10_Shaw\Mission10_Shaw\obj\Debug\net8.0\ref\Mission10_Shaw.dll
 C:\Users\awsha\source\repos\Mission10_Shaw\backend\Mission10_Shaw\Mission10_Shaw\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\awsha\source\repos\Mission10_Shaw\backend\Mission10_Shaw\Mission10_Shaw\obj\Debug\net8.0\Mission10_Shaw.sourcelink.json
