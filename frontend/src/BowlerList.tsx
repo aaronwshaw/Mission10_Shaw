@@ -8,12 +8,13 @@ function BowlerList() {
     const response = await fetch('https://localhost:7277/api/Bowlers');
 
     const data = await response.json();
-    // const filteredData = data.filter(
-    //   (bowler: { teamName: string }) =>
-    //     bowler.team.teamName === 'Marlins' || bowler.teamName === 'Sharks'
-    // );
+    const filteredData = data.filter(
+      (bowler: { team?: { teamName?: string } }) =>
+        bowler.team?.teamName === 'Marlins' ||
+        bowler.team?.teamName === 'Sharks'
+    );
 
-    setBowlers(data);
+    setBowlers(filteredData);
   };
 
   fetchBowlers();
