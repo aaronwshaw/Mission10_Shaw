@@ -19,17 +19,6 @@ builder.Services.AddSwaggerGen();
 // Enable CORS
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: MyAllowSpecificOrigins,
-        policy =>
-        {
-            policy.WithOrigins("http://localhost:5173") // Your React frontend URL
-                  .AllowAnyMethod()
-                  .AllowAnyHeader();
-        });
-});
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -38,6 +27,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//Allow requests from port 3000 where our frontend is running
+app.UseCors(x => x.WithOrigins("http://localhost:3000"));
 
 app.UseHttpsRedirection();
 

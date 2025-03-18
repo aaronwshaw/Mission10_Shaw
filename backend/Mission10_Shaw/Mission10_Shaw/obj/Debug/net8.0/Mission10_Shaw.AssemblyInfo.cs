@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mission10_Shaw")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cd47dfb6c6174bdee196298e002d6268ea946d56")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+18ee2cb6af6e43cb0bd70869ad35deaff95c6b99")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mission10_Shaw")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mission10_Shaw")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
