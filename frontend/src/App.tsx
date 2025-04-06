@@ -1,17 +1,14 @@
 import './App.css';
-import Heading from './Heading';
-import BowlerList from './BowlerList'; // Import the new BowlerList component
 
 // Main application component
-const App = () => {
+import Recommendations from './Recommendations';
+
+function App() {
   return (
-    <>
-      {/* Display the heading */}
-      <Heading />
-      {/* Display the bowler list, which handles fetching and filtering */}
-      <BowlerList />
-    </>
+    <div className="App">
+      <Recommendations />
+    </div>
   );
-};
+}
 
 export default App;

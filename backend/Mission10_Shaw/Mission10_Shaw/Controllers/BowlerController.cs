@@ -17,15 +17,15 @@ namespace Mission10_Shaw.Controllers
             _context = context;
         }
 
-        [HttpGet(Name = "GetBowlers")]
-        public IEnumerable<Bowler> Get()
-        {
-            var bowlerList = _context.Bowlers
-                                     .Include(b => b.Team)  // Eagerly load the related Team data
-                                     .ToList();
+        //[HttpGet(Name = "GetBowlers")]
+        //public IEnumerable<Bowler> Get()
+        //{
+        //    var bowlerList = _context.Bowlers
+        //                             .Include(b => b.Team)  // Eagerly load the related Team data
+        //                             .ToList();
 
-            return bowlerList;
-        }
+        //    return bowlerList;
+        //}
 
 
         // Get all bowlers

@@ -1,42 +1,56 @@
-using Mission10_Shaw.Data; // Import your Data namespace
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Mission10_Shaw.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-// Configure the database context (SQLite)
+// Set up EF Core to use the correct SQLite database file in the project root
 builder.Services.AddDbContext<BowlingLeagueContext>(options =>
-    options.UseSqlite("Data Source=BowlingLeague.sqlite"));
+    options.UseSqlite("Data Source=./RecommendationDB.sqlite"));
 
-// Add controllers
+// CORS config so your React frontend can call the API
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.AllowAnyOrigin()
+                                .AllowAnyHeader()
+                                .AllowAnyMethod();
+                      });
+});
+
+
+// Add services to the container.
 builder.Services.AddControllers();
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Enable CORS
-var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Enable Swagger UI in development
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-//Allow requests from port 3000 where our frontend is running
-app.UseCors(x => x.WithOrigins("http://localhost:3000"));
+// Apply the CORS policy
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseHttpsRedirection();
-
-app.UseCors(MyAllowSpecificOrigins); // Apply CORS policy
-
 app.UseAuthorization();
 
 app.MapControllers();
+
+// Ensure the DB exists and optionally run your data seeder
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<BowlingLeagueContext>();
+    db.Database.EnsureCreated(); // optional, but safe
+    DataSeeder.Seed(db);         // ← this line must be here and NOT commented
+}
+
 
 app.Run();
